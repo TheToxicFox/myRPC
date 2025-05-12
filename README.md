@@ -92,7 +92,7 @@ sudo dpkg -i deb/myrpc-server.deb
 1. Создайте конфигурационный файл `/etc/myRPC/myRPC.conf` для настройки параметров сервера. Пример файла:
    ```conf
    # Порт, на котором будет слушать сервер
-   port = 28753
+   port = 1234
    # Тип сокета : stream(TCP) или dgram(UDP)
    socket_type = stream
    ```
@@ -113,7 +113,7 @@ sudo dpkg -i deb/myrpc-server.deb
 
 1. Отправка команды с использованием потокового сокета (TCP):
    ```sh
-   myRPC-client -c "ls -la" -h "127.0.0.1" -p 28753 -s
+   myRPC-client -c "ls -la" -h "127.0.0.1" -p 1234 -s
    ```
    Команды:
    - `-c` — команда для выполнения на сервере.
@@ -123,7 +123,7 @@ sudo dpkg -i deb/myrpc-server.deb
 
 2. Отправка команды с использованием датаграммного сокета (UDP):
    ```sh
-   myRPC-client -c "date" -h "127.0.0.1" -p 28753 -d
+   myRPC-client -c "date" -h "127.0.0.1" -p 1234 -d
    ```
    Флаг `-d` указывает на использование UDP сокета.
 
