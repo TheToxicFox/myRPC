@@ -7,7 +7,8 @@
 #include <netinet/in.h>
 #include <arpa/inet.h>
 #include <sys/socket.h>
-#include "libmysyslog.h"  // Подключение библиотеки логирования
+// Подключение библиотеки логирования
+#include "libmysyslog.h"  
 
 #define BUFFER_SIZE 1024
 
@@ -26,7 +27,7 @@ int main(int argc, char *argv[]) {
     char *command = NULL;
     char *server_ip = NULL;
     int port = 0;
-    int use_stream = 1; // Default to stream socket
+    int use_stream = 1;
     int opt;
 
     static struct option long_options[] = {
