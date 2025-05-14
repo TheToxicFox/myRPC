@@ -8,7 +8,8 @@
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include "config_parser.h"
-#include "libmysyslog.h"  // Подключение библиотеки логирования
+// Подключение библиотеки логирования
+#include "libmysyslog.h"
 
 #define BUFFER_SIZE 1024
 
@@ -87,7 +88,7 @@ int main() {
         return 1;
     }
 
-    // Привязка сокета к адресу
+    // Привязка сокета к локальному адресу
     struct sockaddr_in servaddr, cliaddr;
     socklen_t len;
     memset(&servaddr, 0, sizeof(servaddr));
@@ -132,7 +133,7 @@ int main() {
             // Логирование полученного запроса
             mysyslog("Received request", INFO, 0, 0, "/var/log/myrpc.log");
 
-            // Обработка запроса
+            // Обработка запроса пользователя
             char *username = strtok(buffer, ":");
             char *command = strtok(NULL, "");
             if (command) {
